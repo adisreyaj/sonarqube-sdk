@@ -1,0 +1,41 @@
+{
+  "name": "sonarqube-sdk",
+  "version": "0.1.0",
+  "description": "Easy way to work with Sonarqube web APIs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "watch": "tsc -w",
+    "build": "tsc"
+  },
+  "engines": {
+    "node": ">= 12"
+  },
+  "keywords": [
+    "sonarqube",
+    "sonarqube",
+    "api",
+    "sonarqube",
+    "sdk",
+    "sonarqube",
+    "web",
+    "api"
+  ],
+  "author": "Adithya Sreyaj <adi.sreyaj@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^16.10.5",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.0",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "immer": "^9.0.6",
+    "node-fetch": "^3.0.0"
+  }
+}

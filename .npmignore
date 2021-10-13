@@ -1,0 +1,8 @@
+node_modules
+**/*.map
+tsconfig.json
+.prettierrc
+.eslintrc.js
+test
+*.tgz
+src
