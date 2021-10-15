@@ -13,7 +13,7 @@ export class MeasuresController extends ConfigBase {
     options = this.setAuthInHeadersIfConfigured(options, this.config?.auth);
     try {
       const queryParams = new URLSearchParams({
-        component: this.projectKey,
+        component: args.component,
         metricKeys: args.metricKeys.join(','),
       });
       if (args?.additionalFields && Array.isArray(args.additionalFields)) {

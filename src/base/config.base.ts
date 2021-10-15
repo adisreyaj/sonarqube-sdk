@@ -35,8 +35,4 @@ export class ConfigBase {
   protected get url() {
     return this.config.url;
   }
-
-  protected get projectKey() {
-    return this.config.projectKey;
-  }
 }
