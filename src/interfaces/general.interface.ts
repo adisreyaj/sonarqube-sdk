@@ -4,8 +4,10 @@ export interface SonarQubeSDKConfig extends Partial<SonarQubeSDKAuthConfig> {
 }
 
 export interface SonarQubeSDKAuthConfig {
-  auth: {
-    username: string;
-    password: string;
-  };
+  auth: SonarQubeSDKAuth;
+}
+
+export interface SonarQubeSDKAuth {
+  username: string;
+  password: string;
 }
