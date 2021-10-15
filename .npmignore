@@ -6,3 +6,4 @@ tsconfig.json
 test
 *.tgz
 src
+.vscode
