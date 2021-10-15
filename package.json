@@ -5,7 +5,16 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
-    ".": "./dist/index.js"
+    ".": "./dist/index.js",
+    "./dist/*": null,
+    "./interfaces": "./dist/interfaces/index.js"
+  },
+  "typesVersions": {
+    "*": {
+      "interfaces": [
+        "dist/interfaces/index.d.ts"
+      ]
+    }
   },
   "type": "module",
   "scripts": {
@@ -25,7 +34,10 @@
     "web",
     "api"
   ],
-  "author": "Adithya Sreyaj <adi.sreyaj@gmail.com>",
+  "author": {
+    "name": "Adithya Sreyaj",
+    "email": "adi.sreyaj@gmail.com"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^16.10.5",
