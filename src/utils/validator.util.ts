@@ -15,9 +15,6 @@ export class ValidatorUtils {
     } else {
       throw new Error('Please provide a valid sonar url');
     }
-    if (!config?.projectKey || config?.projectKey === '') {
-      throw new Error('Please provide a valid project key');
-    }
     if (has(config, 'auth') && config.auth) {
       const { password, username } = config.auth;
       if (username == null || password == null) {
