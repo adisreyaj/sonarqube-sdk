@@ -2,8 +2,11 @@ node_modules
 **/*.map
 tsconfig.json
 .prettierrc
-.eslintrc.js
+.eslintrc.*js
 test
 *.tgz
 src
 .vscode
+test
+.idea
+.env

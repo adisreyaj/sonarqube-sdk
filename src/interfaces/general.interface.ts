@@ -3,10 +3,19 @@ export interface SonarQubeSDKConfig extends Partial<SonarQubeSDKAuthConfig> {
 }
 
 export interface SonarQubeSDKAuthConfig {
+  type: 'password' | 'token';
   auth: SonarQubeSDKAuth;
 }
 
-export interface SonarQubeSDKAuth {
+export type SonarQubeSDKAuth = SonarQubeSDKPasswordAuth | SonarQubeSDKTokenAuth;
+
+export interface SonarQubeSDKPasswordAuth {
+  type: 'password';
   username: string;
   password: string;
+}
+
+export interface SonarQubeSDKTokenAuth {
+  type: 'token';
+  token: string;
 }

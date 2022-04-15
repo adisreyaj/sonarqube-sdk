@@ -3,7 +3,7 @@
     "target": "es2020",
     "module": "ESNext",
     "lib": [
-      "es2020",
+      "es2020"
     ],
     "declaration": true,
     "allowSyntheticDefaultImports": true,
@@ -14,6 +14,7 @@
   },
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "test"
   ]
 }

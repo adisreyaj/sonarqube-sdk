@@ -1,13 +1,15 @@
-import { ConfigBase } from './base/index.js';
-import { MeasuresController } from './controllers/index.js';
-import { SonarQubeSDKConfig } from './interfaces/index.js';
-import { ValidatorUtils } from './utils/index.js';
+import { ConfigBase } from './base';
+import { MeasuresController } from './controllers';
+import { SonarQubeSDKConfig } from './interfaces';
+import { ValidatorUtils } from './utils';
 
 export class Client extends ConfigBase {
+  public readonly measures = new MeasuresController(this.config);
+
   constructor(config: SonarQubeSDKConfig) {
     super(config);
     ValidatorUtils.validateConfig(config);
   }
-
-  public measures = new MeasuresController(this.config);
 }
+
+export * from './interfaces';

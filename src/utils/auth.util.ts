@@ -1,16 +1,24 @@
-import produce from 'immer';
-import { SonarQubeSDKAuth } from '../interfaces/general.interface.js';
+import { SonarQubeSDKAuth } from '../interfaces';
 
 export class AuthUtils {
-  static setAuthInHeadersIfConfigured = (options: any, auth?: SonarQubeSDKAuth) => {
+  static setAuthInHeadersIfConfigured = (auth?: SonarQubeSDKAuth) => {
+    const options: Record<string, string> = {};
     if (auth) {
-      const basicAuthHeader = {
-        Authorization: 'Basic ' + Buffer.from(`${auth?.username}:${auth?.password}`, 'binary').toString('base64'),
-      };
-      return produce(options, (draft: any) => {
-        Object.assign(draft, basicAuthHeader);
-      });
+      options['Authorization'] =
+        'Basic ' + this.getBaseEncodedAuthCredentials(auth);
     }
     return options;
+  };
+
+  private static getBaseEncodedAuthCredentials = (auth: SonarQubeSDKAuth) => {
+    switch (auth.type) {
+      case 'token':
+        return Buffer.from(`${auth.token}:`, 'binary').toString('base64');
+      default:
+        return Buffer.from(
+          `${auth.username}:${auth.password}`,
+          'binary',
+        ).toString('base64');
+    }
   };
 }

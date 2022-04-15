@@ -1,1 +1,1 @@
-export * from './config.constant.js';
+export * from './config.constant';

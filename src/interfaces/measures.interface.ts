@@ -1,5 +1,9 @@
+/* eslint-disable @typescript-eslint/no-namespace */
 export namespace MeasuresResponse {
-  export interface Component extends ComponentBase, ComponentMetrics, ComponentPeriods {}
+  export interface Component
+    extends ComponentBase,
+      ComponentMetrics,
+      ComponentPeriods {}
 
   export interface ComponentBase {
     component: ComponentBaseComponent;
@@ -32,6 +36,7 @@ export namespace MeasuresResponse {
      */
     metrics?: ComponentMetric[];
   }
+
   export interface ComponentMetric {
     key: string;
     name: string;
@@ -70,7 +75,9 @@ export namespace MeasuresRequest {
      */
     component: string;
   }
-  export interface MeasureControllerComponentArgs extends MeasureControllerArgsBase {
+
+  export interface MeasureControllerComponentArgs
+    extends MeasureControllerArgsBase {
     /**
      * Comma-separated list of additional fields that can be returned in the response.
      */

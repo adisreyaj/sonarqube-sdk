@@ -1,1 +1,1 @@
-export * from './measures.controller.js';
+export * from './measures.controller';

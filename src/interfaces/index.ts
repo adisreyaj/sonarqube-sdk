@@ -1,2 +1,2 @@
-export * from './general.interface.js';
-export * from './measures.interface.js';
+export * from './general.interface';
+export * from './measures.interface';

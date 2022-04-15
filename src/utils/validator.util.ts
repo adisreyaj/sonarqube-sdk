@@ -1,10 +1,11 @@
-import { SonarQubeSDKConfig } from '../interfaces/general.interface.js';
-import { has } from './utils.js';
+import { SonarQubeSDKConfig } from '../interfaces';
+import { isEmpty } from 'lodash-es';
 
 export class ValidatorUtils {
   static validateConfig = (config: SonarQubeSDKConfig) => {
     if (config?.url && config.url !== '') {
-      const isValidURLStart = config.url.startsWith('http://') || config.url.startsWith('https://');
+      const isValidURLStart =
+        config.url.startsWith('http://') || config.url.startsWith('https://');
       if (!isValidURLStart) {
         throw new Error('Make sure the url starts with http:// or https://');
       }
@@ -15,10 +16,22 @@ export class ValidatorUtils {
     } else {
       throw new Error('Please provide a valid sonar url');
     }
-    if (has(config, 'auth') && config.auth) {
-      const { password, username } = config.auth;
-      if (username == null || password == null) {
-        throw new Error('Please provide a valid username and password');
+    if (!isEmpty(config.auth)) {
+      switch (config.auth?.type) {
+        case 'token': {
+          if (isEmpty(config.auth?.token)) {
+            throw new Error('Please provide a valid token');
+          }
+          break;
+        }
+        default: {
+          if (
+            isEmpty(config.auth?.username) ||
+            isEmpty(config.auth?.password)
+          ) {
+            throw new Error('Please provide a valid username and password');
+          }
+        }
       }
     }
   };
